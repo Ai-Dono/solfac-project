@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block head %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<link type="text/css" rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js'></script>
+
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename = 'css/home.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename = 'js/home.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<script>
+    // Function to show or hide the summary when a title is clicked
+    function toggleSummary(index) {
+        var summary = document.getElementById('summary-' + index);
+        if (summary.style.display === 'none') {
+            summary.style.display = 'block';
+        } else {
+            summary.style.display = 'none';
+        }
+    }
+</script>
+<script>
+    // Function to show or hide the summary when a title is clicked
+    function toggleSummary2(index) {
+        var summary = document.getElementById('summary-' + index);
+        if (summary.style.display === 'none') {
+            summary.style.display = 'block';
+        } else {
+            summary.style.display = 'none';
+        }
+    }
+</script>
+
+<div>
+    <h1>Here is the result:</h1>
+    <div class="results">
+        {% for index in range(common['title']|length) %}
+            <div class="box">
+                <h3 onclick="toggleSummary({{ index }})">{{ common['title'][index] }}</h3>
+                <div class="summary" id="summary-{{ index }}" style="display: none;">
+                    {{ common['content'][index] }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exemple de boîtes</title>
+    <style>
+        .resume {
+            background-color: #f1f1f1;
+            padding: 20px;
+        }
+
+        .trust {
+            background-color: #e5e5e5;
+            padding: 20px;
+        }
+
+        .sources {
+            background-color: #d9d9d9;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="article">
+<h1>Most accurate articles about the website:</h1>
+{% if common.articaffich %}
+    {% for article in common.articaffich %}
+        <ul class="box article-box">
+            <li>{{ article[1] }}</li>
+            <a href={{article[0]}}>{{ article[0] }}</a>
+        </ul>
+    {% endfor %}
+{% else %}
+    <p>Aucun article à afficher.</p>
+{% endif %}
+</div>
+</body>
+
+
+
+
+
+    
+</body>
+    <div class="sources">
+        <h1>Results</h1>
+        <ul>
+            {% for url in common['url'] %}
+                <li><a href="{{ url }}">{{ url }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block head %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<link type="text/css" rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js'></script>
+
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename = 'css/home.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename = 'js/home.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<!DOCTYPE html>
+<html>
+    <body class="background">
+<div class="center" style="background-image:url(../static/images/collection-newspapers.jpg)">
+    <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h2>
+    Fact or Fake ?
+</h2>
+<form method="POST" action="{{ url_for('index') }}">
+    <textarea name="my_textarea" rows="12" cols="70"></textarea>
+    <br>
+    <button type="submit">Check!</button>
+</form>
+
+<br>
+<br><br>
+<br><br>
+<br><br>
+<br>
+</div>
+<table>
+    <tr>
+      <td style="border-right: 1px solid black; width:50%; display:inline-block;vertical-align: top;">Contenu de la colonne 1Contenu de la colonne 1Contenu de la colonne 1Contenu de la colonne 1Contenu de la colonne 1Contenu de la colonne 1Contenu de la colonne 1Contenu de la colonne 1Contenu de la colonne 1Contenu de la colonne 1Contenu de la colonne 1Contenu de la colonne 1Contenu de la colonne 1Contenu de la colonne 1Contenu de la colonne 1Contenu de la colonne 1Contenu de la colonne 1Contenu de la colonne 1Contenu de la colonne 1Contenu de la colonne 1Contenu de la colonne 1Contenu de la colonne 1Contenu de la colonne 1</td>
+      <td style="display: inline-block;> Contenu de la colonne 2</td>
+    </tr>
+  </table>
+  
+</body>
+{% endblock %}
+</html>
